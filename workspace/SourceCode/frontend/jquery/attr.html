@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jquery attr</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    下方因為 attr 函式，多了灰色的提示字<br>
+    <input type="text" name="myinput" placeholder="">
+</body>
+    <script>
+        $(document).ready(function(){
+            //input 加入 placeholder 提示字
+            $("input[name='myinput']").attr("placeholder","這個灰字是效果");
+        });
+    </script>
+</html>

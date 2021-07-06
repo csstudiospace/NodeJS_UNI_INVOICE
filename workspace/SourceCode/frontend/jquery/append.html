@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jquery append</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    下方的 hello 因為 append 函式，多了 World<br>
+    <div id="mydiv">hello</div>
+</body>
+    <script>
+        $(document).ready(function(){
+            //在 mydiv裡，加入字串 World
+            $("#mydiv").append("World");
+        });
+    </script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jquery find</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    因為find 函式有找到才會跳出確認視窗<br>
+    <div id="myfirstlayer">
+        我是第1層
+        <div id="mysecondlayer">
+            我是第2層，在第1層裡面
+            <div class="mythirdclass">
+                我是第3層，在第2層裡面
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        $(document).ready(function(){
+            //在第1層內，找出 第2層 id=mysecondlayer, 與 第3層 class=mythirdclass
+            var my_second = $("#myfirstlayer").find("#mysecondlayer");
+            var my_third  = $("#myfirstlayer").find(".mythirdclass");
+            if(my_second.length > 0)
+                alert("第2層:"+my_second.text());
+
+            if(my_third.length > 0)
+                alert("第3層:"+my_third.text());
+        });
+    </script>
+</html>

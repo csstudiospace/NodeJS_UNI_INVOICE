@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jquery text</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    下方的 div 因為 text 函式，被設定了 No Hello<br>
+    <div id="mydiv">yes Hello</div>
+</body>
+	<script>
+		$(document).ready(function(){
+			//修改 div的內容為 No Hello
+			$("#mydiv").text("No Hello");
+		});
+	</script>
+</html>

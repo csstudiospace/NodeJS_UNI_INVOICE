@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jquery play audio</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    <audio src="static/meta/yes.mp3" name="audio_yes"></audio>
+    <button type="button" class="btn btn-primary">按我播放音樂</button>
+</body>
+    <script>
+        $(document).ready(function(){
+            //點擊 button 時，播放 yes.mp3 音樂
+            $(".btn").on("click", function(){
+                $("audio")[0].play();
+            });
+        });
+    </script>
+</html>

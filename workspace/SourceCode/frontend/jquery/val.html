@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jquery val</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    下方的 input 因為 val 函式，被設定了 No Hello<br>
+    <input type="text" name="myinput" value="">
+</body>
+	<script>
+		$(document).ready(function(){
+			//修改 input 的內容 No Hello
+			$("input[name='myinput']").val("No Hello");
+		});
+	</script>
+</html>

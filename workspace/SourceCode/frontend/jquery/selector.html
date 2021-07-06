@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jquery selector</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+    <table border=1>
+    	<thead>
+        <tr>
+        	<td>t1</td>
+            <td>t2</td>
+        </tr>
+    	</thead>
+        
+        <tbody>
+        <tr>
+        	<td>b11</td>
+            <td>b12</td>
+        </tr>
+        <tr>
+        	<td>b21</td>
+            <td>b22</td>
+        </tr>
+    	</tbody>
+    </table>
+</body>
+	<script>
+		$(document).ready(function(){
+			//只要是 td，內容都改成 No Hello
+			$("td").text("No Hello");
+		});
+	</script>
+</html>

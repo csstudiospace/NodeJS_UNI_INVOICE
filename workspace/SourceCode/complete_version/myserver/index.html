@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>統一發票</title>
+
+    <!-- import jquery -->
+    <script src="static/js/jquery.min.js"></script>
+
+    <!-- import bootstrap -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- import custom css -->
+    <link rel="stylesheet" href="static/css/myserver.css">
+
+</head>
+<!-- main page layout
+    ------------------------
+    |          top         |
+    ------------------------
+    | left | center | right|
+    ------------------------
+    |        bottom        |
+    ------------------------
+-->
+
+<body class="container">
+<div class="row justify-content-md-center">
+    <div id="top" class="col-md-auto">
+        <h1>統一發票對獎系統</h1>
+    </div>
+</div>
+<div class="row">
+    <div id="left" class="col">
+        <!-- 回最新月份 -->
+        <button id="btn_lastest" type="button" class="btn btn-primary">回最新月份</button><br><br>
+        <!-- 打字方向 => 由右至左 -->
+        <input type="text" class="form-control w-50" name="input_number_str" style="text-align:right;" placeholder="type number" maxlength="3"><br><br>
+        <!-- 中獎明細 -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#Recording">
+                中獎明細
+                </a>
+            </div>
+            <div id="Recording" class="collapse">
+                <!--<div class="card-body"></div>
+                <div class="card-body"></div>
+                <div class="card-body"></div>-->
+            </div>
+        </div>
+
+    </div>
+    <div id="center" class="col-md-6">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="uni_invoice_tables" class="carousel-inner">
+                <!-- this section is generate by function [gen_uni_invoice] -->
+                <!--<div class="carousel-item active">
+                    <table style="table-layout:fixed" class="table">
+                        <thead>
+                        <tr>
+                          <th name="title" colspan="2"><h2>2222</h2></th>
+                          <th colspan="2" name="publicdate">Public Date: 2021-05-25</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td name="特別獎"><b>特別獎</b></td>
+                          <td name="awards_num">59518250</td>
+                        </tr>
+                        <tr>
+                           <td name="特獎"><b>特獎</b></td>
+                           <td name="awards_num">81016847</td>
+                        </tr>
+                        <tr>
+                           <td name="頭獎"><b>頭獎</b></td>
+                           <td name="awards_num">22884739</td>
+                           <td name="awards_num">80660537</td>
+                           <td name="awards_num">62637675</td>
+                        </tr>
+                        <tr>
+                           <td name="增開六獎"><b>增開六獎</b></td>
+                           <td name="awards_num">187</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="carousel-item">
+                    <table style="table-layout:fixed" class="table">
+                        <thead>
+                        <tr>
+                          <th name="title" colspan="2"><h2>11111</h2></th>
+                          <th colspan="2" name="publicdate">Public Date: 2021-05-25</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td name="特別獎"><b>特別獎</b></td>
+                          <td name="awards_num">59518250</td>
+                        </tr>
+                        <tr>
+                           <td name="特獎"><b>特獎</b></td>
+                           <td name="awards_num">81016847</td>
+                        </tr>
+                        <tr>
+                           <td name="頭獎"><b>頭獎</b></td>
+                           <td name="awards_num">22884739</td>
+                           <td name="awards_num">80660537</td>
+                           <td name="awards_num">62637675</td>
+                        </tr>
+                        <tr>
+                           <td name="增開六獎"><b>增開六獎</b></td>
+                           <td name="awards_num">187</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="carousel-item">
+                    <table style="table-layout:fixed" class="table">
+                        <thead>
+                        <tr>
+                          <th name="title" colspan="2"><h2>110年03月、04</h2></th>
+                          <th colspan="2" name="publicdate">Public Date: 2021-05-25</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td name="特別獎"><b>特別獎</b></td>
+                          <td name="awards_num">59518250</td>
+                        </tr>
+                        <tr>
+                           <td name="特獎"><b>特獎</b></td>
+                           <td name="awards_num">81016847</td>
+                        </tr>
+                        <tr>
+                           <td name="頭獎"><b>頭獎</b></td>
+                           <td name="awards_num">22884739</td>
+                           <td name="awards_num">80660537</td>
+                           <td name="awards_num">62637675</td>
+                        </tr>
+                        <tr>
+                           <td name="增開六獎"><b>增開六獎</b></td>
+                           <td name="awards_num">187</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>-->
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+    </div>
+    <div id="right" class="col">
+        <!-- 載入需要的音效檔 -->
+        <audio src="static/meta/yes.mp3" name="audio_yes">
+        <audio src="static/meta/no.mp3" name="audio_no">
+        <audio src="static/meta/0.mpga" name="audio_0">
+        <audio src="static/meta/1.mpga" name="audio_1">
+        <audio src="static/meta/2.mpga" name="audio_2">
+        <audio src="static/meta/3.mpga" name="audio_3">
+        <audio src="static/meta/4.mpga" name="audio_4">
+        <audio src="static/meta/5.mpga" name="audio_5">
+        <audio src="static/meta/6.mpga" name="audio_6">
+        <audio src="static/meta/7.mpga" name="audio_7">
+        <audio src="static/meta/8.mpga" name="audio_8">
+        <audio src="static/meta/9.mpga" name="audio_9">
+        <audio src="static/meta/200.mpga" name="audio_win200">
+        <audio src="static/meta/200_more.mpga" name="audio_win200_more">
+        <audio src="static/meta/all.mpga" name="audio_all">
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div id="bottom" class="col-md-auto">
+
+            <!-- 顯示比對結果 -->
+            <div style="color: red; font-size:125%;">
+                訊息：<div id="message"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+
+//定義獎項
+var awards_list = [
+                    {type:"特別獎", money: 10000000, audio_obj: $("audio[name='audio_all']")[0], msg:"全中才有喔！！"},
+                    {type:"特獎", money: 2000000, audio_obj: $("audio[name='audio_all']")[0], msg:"全中才有喔！！"},
+                    {type:"頭獎", money: 200000, audio_obj: $("audio[name='audio_win200_more']")[0], msg:"已中200元！！"},
+                    {type:"增開六獎", money: 200, audio_obj: $("audio[name='audio_win200']")[0], msg:"中了200元！！"}
+                    ];
+
+//畫面正常顏色
+function unset_award(){
+    $('body').css("background","white");
+    
+    //清除前一次中獎號碼的顏色、Size
+    $("td[taged='1']").css("zoom","");
+    $("td[taged='1']").css("color","");
+    $("td[taged='1']").removeAttr("taged");
+}
+
+//畫面中獎顏色
+function set_award(){
+    $('body').css("background","#AED6F1");
+}
+
+//設置 input, focus/對獎...etc(layout:right)
+function set_input_number(){
+    $("input[name='input_number_str']").focus();
+
+    //在 keypress 檢查是否為數字
+    $("input[name='input_number_str']").keydown(function(e){
+
+        if(isNaN(e.key)){
+            console.log("not a number");
+            return false;
+        }
+
+        //播放數字音效
+        var audio_num = $("audio[name='audio_"+e.key+"']")[0];
+        audio_num.playbackRate = 1.8;
+        audio_num.play();
+
+    });
+
+    //在 keyup 檢查是否中獎
+    $("input[name='input_number_str']").keyup(function(e){
+        if($("input[name='input_number_str']").val().length<3){
+            return false;
+        }
+
+        var jack_pot = 0;
+        //輸入的字串轉數字
+        var input_number = parseInt($("input[name='input_number_str']").val(), 10);
+
+        //滿3字後，以下是比對中獎
+        var curtable = $(".carousel-item.active");
+        var nums_arr = curtable.find("td[name='nums']");
+
+        for(var i=0; i<nums_arr.length; i++){
+            //console.log( $(nums_arr[i]).text() );
+
+            //發票號碼的字串轉數字
+            var award_compare_num = parseInt( $(nums_arr[i]).text(), 10);
+            //只比對後三碼
+            if( (award_compare_num - input_number)%1000 == 0){
+                jack_pot = 1;
+                break;
+            }
+        }
+
+        //清空中獎狀態內容
+        unset_award();
+
+        //中三碼的話，更改畫面顯示，包含中獎號碼
+        if(jack_pot){
+            $(nums_arr[i]).css("zoom",1.3);
+            $(nums_arr[i]).css("color","red");
+            $(nums_arr[i]).attr("taged","1");
+            set_award();
+
+            //加入至中獎明細列表
+            $("#Recording").append("<div class='card-body'>"+$(nums_arr[i]).attr("award_type")+":"+$(nums_arr[i]).text()+"</div>");
+
+            //播放中獎音效
+            var audio_num = $("audio[name='audio_yes']")[0];
+            audio_num.playbackRate = 1.8;
+            audio_num.play();
+
+            //播放中獎項目的音效
+            var found = awards_list.find(x=> x.type == $(nums_arr[i]).attr("award_type"));
+            found.audio_obj.playbackRate = 1.8;
+            found.audio_obj.play();
+
+            $("#message").text(found.msg);
+        }
+        else{
+            //播放沒中音效
+            var audio_num = $("audio[name='audio_no']")[0];
+            audio_num.playbackRate = 1.8;
+            audio_num.play();
+
+            $("#message").text("沒中獎");
+        }
+        
+        //清空輸入的欄位
+        $("input[name='input_number_str']").val("");
+
+    });
+}
+
+//產生統一發票列表(layout:center)
+function gen_uni_invoice(){
+    var capture_num_str_notation = "：";
+    var capture_num_arr_notation = "、";
+
+    //設定 HTTP GET 參數
+    var opt = {
+        url:"/api/getuniinvoice",
+        type:"GET",
+        dataType:"xml",
+        success:function(data, status, xhr){ //成功
+            //get rss data
+console.log( $(data).find("rss")[0].innerHTML );
+            //console.log( $(data).find("rss")[0].outerHTML );
+            var rssdata = $(data).find("rss")[0].outerHTML;
+
+            //parse rss && get all item nodes
+            var items = $(rssdata).find("item");
+
+            //parse item node
+            for(var i=0;i<items.length;i++){
+                var carouselitem;
+                if(i==0)
+                    carouselitem = $('<div class="carousel-item active "></div>');
+                else
+                    carouselitem = $('<div class="carousel-item "></div>');
+
+                var award_table = $('<table style="table-layout:fixed" class="table"></table>');
+                var award_table_thead = $('<thead></thead>');
+                var award_table_thead_tr = $('<tr></tr>');
+
+                //console.log(items[i]);
+                var award_title   = $(items[i]).find("title").text();
+                var award_pubDate = $(items[i]).find("pubDate").text();
+                //e.g 110年03月、04
+                //console.log("T:"+award_title);
+                //2021-05-25
+                //console.log("D:"+award_pubDate);
+                award_table_thead_tr.append('<th name="title" colspan="2"><h2>'+award_title+'</h2></th>');
+                award_table_thead_tr.append('<th colspan="2" name="publicdate">Public Date: '+award_pubDate+'</th>');
+                //將月份、日期加入至 thead
+                award_table_thead.append(award_table_thead_tr);
+
+
+                var award_table_tbody = $('<tbody></tbody>');
+
+                var award_descr = $($(items[i]).find("description").text());
+                for(var j=0;j<award_descr.length;j++){
+                    var award_table_tbody_tr = $('<tr></tr>');
+
+                    //console.log($(award_descr[j]).text());
+                    var tmpcap = $(award_descr[j]).text().split(capture_num_str_notation);
+                    //console.log(tmpcap);
+                    if(tmpcap.length < 2)
+                        continue;
+
+
+                    //特別獎、特獎、頭獎、增開六獎
+                    var award_type = tmpcap[0];
+                    award_table_tbody_tr.append('<td name="'+award_type+'"><b>'+award_type+'</b></td>');
+
+                    //各獎數字
+                    var award_nums = tmpcap[1].split(capture_num_arr_notation);
+                    for(var k=0; k<award_nums.length; k++){
+                        //console.log(award_nums[k]);
+                        award_table_tbody_tr.append('<td award_type='+award_type+' name="nums"><b>'+award_nums[k]+'</b></td>');
+                    }
+                    //將獎名、號碼加入至 tbody
+                    award_table_tbody.append(award_table_tbody_tr);
+                }
+                
+
+                //將thead, tbody 加入 Table
+                award_table.append(award_table_thead);
+                award_table.append(award_table_tbody);
+                
+                //將Table 加入 跑馬燈
+                carouselitem.append(award_table);
+                $("#uni_invoice_tables").append(carouselitem);
+            }
+            
+
+        },
+        error:function(xhr, status, e){ //失敗
+            alert("get uni invoice error:" + e);
+        },
+        complete:function(xhr,status, e){ //無論成功 or 失敗後，都會來這裡
+        }
+    };
+
+    //執行抓取
+    $.ajax(opt);
+}
+
+$(document).ready(function() { 
+
+    gen_uni_invoice();
+
+    set_input_number();
+
+    //跑馬燈停止自動旋轉
+    $(".carousel").carousel({
+        interval:false
+    });
+
+    //點擊回到最新月份
+    $("#btn_lastest").click(function(){
+        $(".carousel").carousel(0);
+    });
+
+});
+</script>
+</html>
