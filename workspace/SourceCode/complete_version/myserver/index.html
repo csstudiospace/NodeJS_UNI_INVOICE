@@ -312,10 +312,12 @@ function gen_uni_invoice(){
         type:"GET",
         dataType:"xml",
         success:function(data, status, xhr){ //成功
+            //remove CDATA
+            var removedcdata = $(data).find("rss")[0].outerHTML.replaceAll(/<!\[CDATA\[/g,"").replaceAll(/]]>/g,"");
             //get rss data
-console.log( $(data).find("rss")[0].innerHTML );
+console.log( removedcdata );
             //console.log( $(data).find("rss")[0].outerHTML );
-            var rssdata = $(data).find("rss")[0].outerHTML;
+            var rssdata = removedcdata;
 
             //parse rss && get all item nodes
             var items = $(rssdata).find("item");
@@ -332,9 +334,9 @@ console.log( $(data).find("rss")[0].innerHTML );
                 var award_table_thead = $('<thead></thead>');
                 var award_table_thead_tr = $('<tr></tr>');
 
-                //console.log(items[i]);
+                console.log(items[i]);
                 var award_title   = $(items[i]).find("title").text();
-                var award_pubDate = $(items[i]).find("pubDate").text();
+                var award_pubDate = $(items[i]).find("pubdate").text();
                 //e.g 110年03月、04
                 //console.log("T:"+award_title);
                 //2021-05-25
@@ -347,7 +349,7 @@ console.log( $(data).find("rss")[0].innerHTML );
 
                 var award_table_tbody = $('<tbody></tbody>');
 
-                var award_descr = $($(items[i]).find("description").text());
+                var award_descr = $(items[i]).find("description").find("p");
                 for(var j=0;j<award_descr.length;j++){
                     var award_table_tbody_tr = $('<tr></tr>');
 
